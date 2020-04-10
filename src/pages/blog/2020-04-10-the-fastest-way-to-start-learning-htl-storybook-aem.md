@@ -10,7 +10,6 @@ tags:
   - Beginner
   - HTL
   - "@storybook/aem"
-  - ""
 ---
 Getting started with AEM and HTL generally means setting up a local AEM instance. For many frontend developers, this can be a bit daunting. So let's start with something more familiar - an NPM Package: @storybook/aem.
 
