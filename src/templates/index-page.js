@@ -5,6 +5,7 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
+import Section from '../components/Section'
 
 export const IndexPageTemplate = ({
   image,
@@ -14,8 +15,24 @@ export const IndexPageTemplate = ({
   mainpitch,
   description,
   intro,
-}) => (
-  <div>
+}) => {
+  return (
+    <>
+      <section className="bg-cream flex items-center justify-center flex-col p-8">
+        <h1 className="text-brown">{heading ? heading : title}</h1>
+        <h2 className="text-gray-800">{subheading}</h2>
+        <em className="mt-4 max-w-xl mx-auto text-center">{description}</em>
+      </section>
+      <Section>
+        <h2 className="mb-4 font-bold">Latest Articles</h2>
+        <BlogRoll />
+      </Section>
+    </>
+  )
+}
+
+/*
+
     <div
       className="full-width-image margin-top-0"
       style={{
@@ -112,7 +129,9 @@ export const IndexPageTemplate = ({
       </div>
     </section>
   </div>
-)
+*/
+
+
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),

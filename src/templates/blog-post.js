@@ -1,10 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
-import Helmet from 'react-helmet'
-import { graphql, Link } from 'gatsby'
-import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { kebabCase } from 'lodash';
+import Helmet from 'react-helmet';
+import { graphql, Link } from 'gatsby';
+import Layout from '../components/Layout';
+import Content, { HTMLContent } from '../components/Content';
+import Section from '../components/Section';
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
 export const BlogPostTemplate = ({
   content,
@@ -13,36 +15,49 @@ export const BlogPostTemplate = ({
   tags,
   title,
   helmet,
+  featuredimage
 }) => {
-  const PostContent = contentComponent || Content
+  const PostContent = contentComponent || Content;
 
   return (
-    <section className="section">
-      {helmet || ''}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{description}</p>
-            <PostContent content={content} />
-            {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <ul className="taglist">
-                  {tags.map(tag => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-          </div>
+    <>
+      {featuredimage ? (
+        <div className="featured-thumbnail">
+          <PreviewCompatibleImage
+            imageInfo={{
+              image: featuredimage,
+              alt: `featured image thumbnail for post ${title}`,
+              classNames: `object-cover h-48 w-full`
+            }}
+          />
         </div>
-      </div>
-    </section>
+      ) : null}
+      <Section>
+        <>
+          {helmet || ''}
+
+          <h1>{title}</h1>
+          <h2 className="text-gray-500 mb-8">{description}</h2>
+
+          {tags && tags.length ? (
+            <div className="flex my-8 border-gray-100 border-t-2 border-b-2 py-2">
+              <h4 className="font-semibold mr-2">Tags:</h4>
+              <ul className="flex">
+                {tags.map(tag => (
+                  <li key={tag + `tag`}>
+                    <Link
+                      className="mx-2"
+                      to={`/tags/${kebabCase(tag)}/`}
+                    >{tag}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+          <PostContent content={content} />
+        </>
+      </Section>
+    </>
   )
 }
 
@@ -74,6 +89,7 @@ const BlogPost = ({ data }) => {
         }
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
+        featuredimage={post.frontmatter.featuredimage}
       />
     </Layout>
   )
@@ -97,6 +113,13 @@ export const pageQuery = graphql`
         title
         description
         tags
+        featuredimage {
+          childImageSharp {
+            fluid(quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

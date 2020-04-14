@@ -10,49 +10,45 @@ class BlogRoll extends React.Component {
 
     return (
       <div className="columns is-multiline">
-        {posts &&
-          posts.map(({ node: post }) => (
-            <div className="is-parent column is-6" key={post.id}>
-              <article
-                className={`blog-list-item tile is-child box notification ${
-                  post.frontmatter.featuredpost ? 'is-featured' : ''
+        {posts && posts.map(({ node: post }) => (
+          <div className="is-parent column is-6" key={post.id}>
+            <article
+              className={`blog-list-item tile is-child box notification flex ${
+                post.frontmatter.featuredpost ? 'is-featured' : ''
                 }`}
-              >
-                <header>
-                  {post.frontmatter.featuredimage ? (
-                    <div className="featured-thumbnail">
-                      <PreviewCompatibleImage
-                        imageInfo={{
-                          image: post.frontmatter.featuredimage,
-                          alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                        }}
-                      />
-                    </div>
-                  ) : null}
-                  <p className="post-meta">
-                    <Link
-                      className="title has-text-primary is-size-4"
-                      to={post.fields.slug}
-                    >
-                      {post.frontmatter.title}
-                    </Link>
-                    <span> &bull; </span>
-                    <span className="subtitle is-size-5 is-block">
-                      {post.frontmatter.date}
-                    </span>
-                  </p>
-                </header>
-                <p>
-                  {post.excerpt}
-                  <br />
-                  <br />
-                  <Link className="button" to={post.fields.slug}>
-                    Keep Reading →
+            >
+              {post.frontmatter.featuredimage ? (
+                <div className="featured-thumbnail w-1/3 mr-4">
+                  <PreviewCompatibleImage
+                    imageInfo={{
+                      image: post.frontmatter.featuredimage,
+                      alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                    }}
+                  />
+                </div>
+              ) : null}
+              <div className={post.frontmatter.featuredimage ? 'w-2/3 ml-4' : ''}>
+                <h3 className="post-meta font-bold">
+                  <Link
+                    className="title has-text-primary is-size-4"
+                    to={post.fields.slug}
+                  >
+                    {post.frontmatter.title}
                   </Link>
-                </p>
-              </article>
-            </div>
-          ))}
+                </h3>
+                <div>
+                  <span className="subtitle is-size-5 is-block text-sm my-2 block">
+                    {post.frontmatter.date}
+                  </span>
+                </div>
+                <p>{post.excerpt}</p>
+                <Link className="button" to={post.fields.slug}>
+                  Keep Reading →
+                </Link>
+              </div>
+            </article>
+          </div>
+        ))}
       </div>
     )
   }

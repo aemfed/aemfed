@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+  --sm: 500px;
+  --md: 768px;
+  --lg: 1024px;
+  --xl: 1200px;
+}
+
+html {
+  font-family: 'DM Sans', sans-serif;
+  @apply text-gray-800;
+}
+
+h1 {
+  @apply text-4xl font-bold;
+}
+h2 {
+  @apply text-3xl font-bold;
+}
+h3 {
+  @apply text-2xl font-bold;
+}
+
+a {
+  @apply text-orange font-bold;
+}
+
+a:hover {
+  @apply underline;
+}
+
+p {
+  @apply mb-4 max-w-4xl text-xl;
+}
+
+.button {
+  @apply bg-orange font-bold my-4 px-3 py-2 rounded-md text-cream inline-block;
+}
+
+.button:hover {
+  @apply text-white;
+}
+
+pre {
+  @apply bg-gray-100 p-4 overflow-x-auto rounded text-gray-800 my-4 font-mono;
+}
