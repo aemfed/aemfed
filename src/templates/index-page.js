@@ -21,7 +21,7 @@ export const IndexPageTemplate = ({
       <section className="bg-cream flex items-center justify-center flex-col p-8">
         <h1 className="text-brown">{heading ? heading : title}</h1>
         <h2 className="text-gray-800">{subheading}</h2>
-        <em className="mt-4 max-w-xl mx-auto text-center">{description}</em>
+        {/* <em className="mt-4 max-w-xl mx-auto text-center">{description}</em> */}
       </section>
       <Section>
         <h2 className="mb-4 font-bold">Latest Articles</h2>
