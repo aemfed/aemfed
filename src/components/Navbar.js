@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import logo from '../img/AEM-logo.png';
+import logo from '../img/AEM-Logo.png';
 
 const Navbar = props => {
   const NavLinkClasses = `navbar-item text-cream font-bold mx-4 px-3 py-2 rounded-md focus:bg-gray-900 hover:bg-gray-900 hover:text-white`;
