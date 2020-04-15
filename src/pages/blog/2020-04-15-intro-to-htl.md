@@ -36,3 +36,10 @@ Expression syntax is identified with `${` and `}`. The contents of an expression
 <!--/* Expressions can access indices of an array */-->
 <li>List Index: ${listItem[2]}</li>
 ```
+
+
+Sources:
+1. https://github.com/adobe/htl-spec/blob/master/SPECIFICATION.md
+2. https://docs.adobe.com/content/help/en/experience-manager-htl/using/getting-started/update.html
+3. https://docs.adobe.com/content/help/en/experience-manager-htl/using/overview.html
+
