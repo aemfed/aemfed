@@ -9,7 +9,7 @@ tags:
   - Intro-to-HTL
   - Beginner
 ---
-Frontend Development for Adobe Experience Manager (AEM) means using the HTML Template Language (HTL) to present data from the content management system. HTL was written for use with AEM with the 6.0 release, and was made as a replacement for Java ServerPages (JSP). HTL was created to improve data security, simplify template development for AEM, and to enable Frontend Developers - who often don't know Java - to write templates for AEM. 
+Frontend Development for Adobe Experience Manager (AEM) means using the HTL - HTML Template Language - to present data from the content management system. HTL was written for use with AEM with the 6.0 release, and was made as a replacement for Java ServerPages (JSP). HTL was created to improve data security, simplify template development for AEM, and to enable Frontend Developers - who often don't know Java - to write templates for AEM. 
 
 HTL intentionally looks like HTML, and uses an expression language to insert data into markup. Behind the scenes, HTL is compiled to Java Servlets, and all of the HTL annotations, tags, and expressions are removed from the output markup.
 
