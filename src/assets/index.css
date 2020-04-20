@@ -7635,6 +7635,26 @@ pre {
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+.post ul,
+.post ol {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.post ul li,
+.post ol li {
+  margin-left: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.post ul li {
+  list-style-type: disc;
+}
+
+.post ol li {
+  list-style-type: decimal;
+}
+
 @media (min-width: 500px) {
   .sm\:sr-only {
     position: absolute;
