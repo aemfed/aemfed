@@ -48,3 +48,20 @@ p {
 pre {
   @apply bg-gray-100 p-4 overflow-x-auto rounded text-gray-800 my-4 font-mono;
 }
+
+.post ul,
+.post ol {
+  @apply my-4;
+}
+
+.post ul li,
+.post ol li {
+  @apply ml-6 text-xl;
+}
+
+.post ul li {
+  @apply list-disc;
+}
+.post ol li {
+  @apply list-decimal;
+}
